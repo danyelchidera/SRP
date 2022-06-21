@@ -1,0 +1,15 @@
+﻿@page
+@model SRP.Pages.Categories.IndexModel
+@{
+}
+
+<h1 text-primary>Categories</h1>
+<a asp-page="/categories/createcategory">Create Category</a>
+
+@{
+    foreach(var cat in Model.Categories)
+    {
+        <p>@cat.Name</p>
+        <p>@cat.DisplayOrder</p>
+    }
+}

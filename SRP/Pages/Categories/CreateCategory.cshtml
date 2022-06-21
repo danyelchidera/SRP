@@ -1,0 +1,15 @@
+﻿@page
+@model SRP.Pages.Categories.CreateCategoryModel
+@{
+}
+
+<form method="post">
+    <h1 class="pl-3">Create Category</h1>
+    <label asp-for="Category.Name"></label>
+    <input asp-for="Category.Name" class="form-control"/>
+
+    <label asp-for="Category.DisplayOrder"></label>
+    <input asp-for="Category.DisplayOrder" class="form-control" />
+
+    <button type="submit" class="btn btn-primary">Create Categroy</button>
+</form>
