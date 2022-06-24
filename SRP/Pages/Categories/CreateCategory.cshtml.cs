@@ -28,6 +28,7 @@ namespace SRP.Pages.Categories
             if(ModelState.IsValid)
             {
                 await _repo.AddCategoryAsync(Category);
+                TempData["success"] = "Category successfully created";
                 return RedirectToPage("Index");
             }
             return Page();

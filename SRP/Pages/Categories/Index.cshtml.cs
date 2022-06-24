@@ -20,5 +20,12 @@ namespace SRP.Pages.Categories
         {
             
         }
+
+        public void OnPostDelete(int id)
+        {
+            _repo.Delete(id);
+            TempData["success"] = "Successfully deleted";
+        }
     }
+
 }

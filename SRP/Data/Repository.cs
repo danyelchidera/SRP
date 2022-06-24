@@ -18,9 +18,30 @@ namespace SRP.Data
             return res.Entity;
         }
 
+        public void Delete(int id)
+        {
+            var cat = _context.Categories.Find(id);
+            _context.Categories.Remove(cat);
+            _context.SaveChanges();
+        }
+
         public IEnumerable<Category> GetCategories()
         {
             return _context.Categories;
         }
+
+        public Category GetCategory(int id)
+        {
+            return _context.Categories.Find(id);
+            
+        }
+
+        public void UpdateCategoryAsync(Category category)
+        {
+            var res = _context.Update(category);
+            _context.SaveChanges();
+        }
+
+        
     }
 }
