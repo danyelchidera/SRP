@@ -23,8 +23,14 @@ namespace SRP.Pages.Categories
 
         public async Task<IActionResult> OnPost()
         {
-            await _repo.AddCategoryAsync(Category);
-            return RedirectToPage("Index");
+            if (Category.Name == Category.DisplayOrder.ToString())
+                ModelState.AddModelError("Category.Name", "Name cannot be exactly same with display order");
+            if(ModelState.IsValid)
+            {
+                await _repo.AddCategoryAsync(Category);
+                return RedirectToPage("Index");
+            }
+            return Page();
         }
 
       
